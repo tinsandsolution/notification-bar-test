@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import React, { useState } from 'react';
 
 // we're going to create a dummy object to represent our notifications
@@ -78,7 +76,6 @@ function App() {
         {hovered && <div className='notification-items'>{detailedNotifications(notifications)}</div>}
         {hovered && <div className='all-notifications-button'>All Notifications</div>}
       </div>
-      random body information
     </div>
   );
 }

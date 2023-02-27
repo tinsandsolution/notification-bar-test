@@ -1,10 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Open Sans', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Open Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #010001;
   color: white;
 }
@@ -48,8 +45,12 @@ body {
   flex-direction: row;
   justify-content: space-between;
   aspect-ratio: 10/1;
-  background-color: #1c2123;
+  background-color: #1c2123c7;
   font-size: small;
+}
+
+.all-notifications-button:hover {
+  background-color: #1c2123;
 }
 
 .notification-item {
@@ -68,7 +69,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow: scroll;
-  max-height: 200px;
+  max-height: 225px;
   overflow-x: hidden;
 }
 
