@@ -36,9 +36,6 @@ const notifications = [
 ];
 
 function detailedNotifications() {
-  // we're going to do a map thing here
-  // taking in the notifications object and turning them into boxes
-
   return (
     notifications.map((notification, idx) => {
       let notification_text = notification.user + " " + (notification.type == "comment" ? "commented" : "replied") + ": " + notification.message
@@ -59,7 +56,6 @@ function detailedNotifications() {
       return notification_item
     })
   )
-
 }
 
 
@@ -70,19 +66,17 @@ function App() {
       <div className="notification-wrapper" onMouseOver={()=>setHovered(true)} onMouseOut={()=>{
         setHovered(false)
         notifications.forEach((notification) => notification.read = true)
-        console.log(notifications)
       }}>
         <div className="notification-header">
           <div className="notification-left">
             Notifications
           </div>
           <div className="notification-right">
-            {hovered ? "" : notifications.reduce((acc, notification) => acc + (notification.read ? 0 : 1), 0)}
+            {notifications.reduce((acc, notification) => acc + (notification.read ? 0 : 1), 0)}
           </div>
         </div>
-        {/* a div that only is displayed if hovered is set to true */}
         {hovered && <div className='notification-items'>{detailedNotifications(notifications)}</div>}
-        {/* fadsfasdf */}
+        {hovered && <div className='all-notifications-button'>All Notifications</div>}
       </div>
       random body information
     </div>
