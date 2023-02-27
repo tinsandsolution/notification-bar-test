@@ -34,7 +34,7 @@ const notifications = [
 function detailedNotifications(notifications) {
   // we're going to do a map thing here
   // taking in the notifications object and turning them into boxes
-  return "dfdsf"
+
   return (
     notifications.map((notification) => {
       const notification_item = (
@@ -43,7 +43,7 @@ function detailedNotifications(notifications) {
           {notification.user} {notification.type == "comment" ? "commented" : "replied"}: {notification.message}
         </div>
       )
-      return "hi"
+      return notification_item
     })
   )
 
@@ -64,7 +64,8 @@ function App() {
           </div>
         </div>
         {/* a div that only is displayed if hovered is set to true */}
-        {hovered && <detailedNotifications notifications={notifications}/>}
+        {hovered && <div className='notification-items'>{detailedNotifications(notifications)}</div>}
+        {/* fadsfasdf */}
       </div>
       random body information
     </div>
