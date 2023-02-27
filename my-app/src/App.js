@@ -36,11 +36,15 @@ function detailedNotifications(notifications) {
   // taking in the notifications object and turning them into boxes
 
   return (
-    notifications.map((notification) => {
+    notifications.map((notification, idx) => {
+      let notification_text = notification.user + " " + (notification.type == "comment" ? "commented" : "replied") + ": " + notification.message
+      if (notification_text.length > 79) {
+        notification_text = notification_text.substring(0, 76) + "..."
+      }
       const notification_item = (
-        <div className='notification-item'>
-          {notification.timestamp}
-          {notification.user} {notification.type == "comment" ? "commented" : "replied"}: {notification.message}
+        <div className={idx == 0 ? 'notification-item n-i-1st' : 'notification-item'}>
+          <span className='notification-timestamp'>{notification.timestamp}</span>
+          <span className='notification-text'>{notification_text}</span>
         </div>
       )
       return notification_item

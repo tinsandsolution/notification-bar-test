@@ -22,7 +22,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 25%;
+  width: 35%;
   min-height: 50px;
   min-width: 200px;
   border: 1px solid black;
@@ -30,7 +30,13 @@ code {
   background-color: #131719;
   color: #e0e0e1;
   cursor: pointer;
+  max-height: 600px;
+  overflow: hidden;
   /* padding: 10% 10% 10% 10%; */
+}
+
+.notification-wrapper:hover {
+
 }
 
 .notification-header {
@@ -47,26 +53,64 @@ code {
 }
 
 .notification-item {
-  /* margin: 5% 5% 5% 5%; */
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-top: 1px solid white;
-  border: 1px solid white;
+  flex-direction: column;
+  border-top: .5px solid #313536;
+  padding-bottom: 20px;
+  /* max-height: 90px; */
+  /* aspect-ratio: 3/1; */
+  overflow: hidden;
 
-  /* height: 20%; */
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .notification-items {
   /* margin: 5% 5% 5% 5%; */
-  margin-top: 20%;
+  box-sizing: border-box;
+  position: relative;
+  top: 40px;
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: scroll;
-  max-height: 300px;
+  /* max-height: 300px; */
+  border: 1px solid white;
   overflow-x: hidden;
 
+}
+
+.notification-text{
+  margin-top: 1%;
+}
+
+.notification-timestamp {
+  margin-top: 2%;
+  font-size: small;
+}
+
+.n-i-1st {
+  border: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a1a2a3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
