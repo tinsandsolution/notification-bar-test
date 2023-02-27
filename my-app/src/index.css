@@ -20,8 +20,13 @@ body {
   background-color: #131719;
   color: #e0e0e1;
   cursor: pointer;
-  max-height: 600px;
+  max-height: 0px;
   overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.notification-wrapper:hover{
+  max-height: 600px;
 }
 
 .notification-read {
@@ -88,7 +93,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
 
 /* Track */
@@ -99,6 +104,7 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #a1a2a3;
+  border-radius: 20px;
 }
 
 /* Handle on hover */
