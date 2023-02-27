@@ -20,7 +20,7 @@ code {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 35%;
   min-height: 50px;
@@ -35,20 +35,16 @@ code {
   /* padding: 10% 10% 10% 10%; */
 }
 
-.notification-wrapper:hover {
-
+.notification-read {
+  color: #696c6d;
 }
 
 .notification-header {
-  position: absolute;
-  /* margin: 5% 5% 5% 5%; */
-  top: 15px;
+  margin-top: 14px;
   width: 80%;
-  /* border: 1px solid white; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* margin-top: 10px; */
   aspect-ratio: 10/1;
 }
 
@@ -57,27 +53,22 @@ code {
   display: flex;
   flex-direction: column;
   border-top: .5px solid #313536;
-  padding-bottom: 20px;
-  /* max-height: 90px; */
-  /* aspect-ratio: 3/1; */
-  overflow: hidden;
-
-  text-overflow: ellipsis;
+  padding-bottom: 10px;
   text-align: left;
 }
 
 .notification-items {
   /* margin: 5% 5% 5% 5%; */
   box-sizing: border-box;
-  position: relative;
-  top: 40px;
-  width: 80%;
+  /* position: relative; */
+  /* top: 40px; */
+  width: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: scroll;
-  /* max-height: 300px; */
-  border: 1px solid white;
+  max-height: 200px;
+  /* border: 1px solid white; */
   overflow-x: hidden;
 
 }

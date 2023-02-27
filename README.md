@@ -5,8 +5,8 @@ A few basic assumptions here:
 
 # Mobile Devices
 
-In a mobile application, the notifications section is typically not a drop-down due to limited screen size. Instead, it takes up the entire page. See Twitter and NextDoor for examples.
+In a mobile application, the notifications section is typically not a drop-down due to limited screen size. Instead, it takes up the entire main div. See Twitter and NextDoor for examples.
 
-Making it mobile-friendly would involve something like react-device-detect and redirecting the user to a different frontend depending on their client.
+Making it mobile-friendly would involve changing the spec for the notifications component entirely.
 
 Implementing the notifications on mobile would mostly involve copying 80% of the code already written, but changing widths and text overflow thresholds.

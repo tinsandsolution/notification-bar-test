@@ -9,40 +9,49 @@ const notifications = [
     message: "Hey, I just met you",
     user: "Carly",
     timestamp: "2 minutes ago",
-    type: "reply"
+    type: "reply",
+    read: false,
   },
   {
     message: "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh, black and yellow! Let's shake it up a little.",
     user: "Jerry",
     timestamp: "3 minutes ago",
-    type: "comment"
+    type: "comment",
+    read: false,
   },
   {
     message: "The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world.",
     user: "Ted",
     timestamp: "4 minutes ago",
-    type: "reply"
+    type: "reply",
+    read: false,
   },
   {
     message: "Oh wow the aliens are coming for me",
     user: "Cixin",
     timestamp: "5 minutes ago",
-    type: "comment"
+    type: "comment",
+    read: true
   },
 ];
 
-function detailedNotifications(notifications) {
+function detailedNotifications() {
   // we're going to do a map thing here
   // taking in the notifications object and turning them into boxes
 
   return (
     notifications.map((notification, idx) => {
       let notification_text = notification.user + " " + (notification.type == "comment" ? "commented" : "replied") + ": " + notification.message
-      if (notification_text.length > 79) {
-        notification_text = notification_text.substring(0, 76) + "..."
+      if (notification_text.length > 80) {
+        notification_text = notification_text.substring(0, 80) + "..."
       }
+
+      let notification_class = "notification-item"
+      if (idx == 0) notification_class += " n-i-1st"
+      if (notification.read) notification_class += " notification-read"
+
       const notification_item = (
-        <div className={idx == 0 ? 'notification-item n-i-1st' : 'notification-item'}>
+        <div className={notification_class}>
           <span className='notification-timestamp'>{notification.timestamp}</span>
           <span className='notification-text'>{notification_text}</span>
         </div>
@@ -58,13 +67,17 @@ function App() {
   const [hovered, setHovered] = useState(false)
   return (
     <div className="App">
-      <div className="notification-wrapper" onMouseOver={()=>setHovered(true)} onMouseOut={()=>setHovered(false)}>
+      <div className="notification-wrapper" onMouseOver={()=>setHovered(true)} onMouseOut={()=>{
+        setHovered(false)
+        notifications.forEach((notification) => notification.read = true)
+        console.log(notifications)
+      }}>
         <div className="notification-header">
           <div className="notification-left">
             Notifications
           </div>
           <div className="notification-right">
-            {hovered ? "" : notifications.length}
+            {hovered ? "" : notifications.reduce((acc, notification) => acc + (notification.read ? 0 : 1), 0)}
           </div>
         </div>
         {/* a div that only is displayed if hovered is set to true */}
