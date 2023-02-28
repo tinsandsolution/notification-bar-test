@@ -15,6 +15,7 @@ body {
   width: 35%;
   min-height: 50px;
   min-width: 200px;
+  max-width: 375px;
   border: 1px solid black;
   border-radius: 20px;
   background-color: #131719;
